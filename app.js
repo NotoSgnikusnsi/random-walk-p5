@@ -8,24 +8,17 @@ class Walk {
   }
 
   walker() {
-    let choice = floor(random(4));
-    switch (choice) {
-      case 0:
-        this.x++;
-        break;
-      case 1:
-        this.x--;
-        break;
-      case 2:
-        this.y++;
-        break;
-      case 3:
-        this.y--;
-        break;
+    let stepx = floor(random(3)) - 1;
+    let stepy = floor(random(3)) - 1;
+    this.x += 2 * stepx;
+    this.y += 2 * stepy;
 
-      default:
-        break;
-    }
+    /* 浮動小数点数を使う */
+    // let stepx = random(-1, 1);
+    // let stepy = random(-1, 1);
+    // this.x += stepx;
+    // this.y += stepy;
+
   }
 
   display() {
