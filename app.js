@@ -1,4 +1,4 @@
-// Waker class
+// Walker class
 class Walk {
   constructor(x, y) {
     this.x = x;
