@@ -1,17 +1,17 @@
 // Walker class
 class Walk {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.x = width / 2;
-    this.y = height / 2;
+  constructor() {
+    this.x = width / 2 + random(-width / 10, width / 10);
+    this.y = height / 2 + random(-height / 10, height / 10);
+
+    this.color = color(random(255), random(255), random(255));
   }
 
   walker() {
     let stepx = floor(random(3)) - 1;
     let stepy = floor(random(3)) - 1;
-    this.x += 2 * stepx;
-    this.y += 2 * stepy;
+    this.x += 5 * stepx;
+    this.y += 5 * stepy;
 
     /* 浮動小数点数を使う */
     // let stepx = random(-1, 1);
@@ -22,19 +22,26 @@ class Walk {
   }
 
   display() {
-    point(this.x, this.y);
+    fill(this.color);
+    noStroke();
+    circle(this.x, this.y, 5);
   }
 }
 
-let w;
+let w = [];
+const num = 50;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
-  w = new Walk();
+  for (let i = 0; i < num; i++) {
+    w[i] = new Walk();
+  }
 }
 
 function draw() {
-  w.walker();
-  w.display();
+  for (let i = 0; i < num; i++) {
+    w[i].walker();
+    w[i].display();
+  }
 }
